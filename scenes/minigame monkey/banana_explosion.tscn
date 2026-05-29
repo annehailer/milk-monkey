@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://xvp7qwmefopf"]
+
+[ext_resource type="Texture2D" uid="uid://cdd5dso74uskn" path="res://assets/banana.png" id="1_5spy8"]
+
+[node name="BananaExplosion" type="Node2D" unique_id=2001033903]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=111285762]
+
+[node name="Banana" type="Sprite2D" parent="CharacterBody2D" unique_id=1881846095]
+scale = Vector2(0.075, 0.075)
+texture = ExtResource("1_5spy8")
+
+[node name="Area2D" type="Area2D" parent="CharacterBody2D" unique_id=1744236764]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CharacterBody2D/Area2D" unique_id=552504356]
+polygon = PackedVector2Array(9.996422, -7.16648, 9.057003, 1.0925827, 3.968481, 6.259392, -4.87772, 6.2985344, -10.788236, 1.7580051, -11.218802, -1.7648182, -4.564581, -0.0034065247, 3.1464882, -0.3556881)

@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://cgye1watf8e4j"]
+
+[ext_resource type="Script" uid="uid://cf1cgw0pou777" path="res://scripts/monkeys_minigame.gd" id="1_xmdwn"]
+[ext_resource type="PackedScene" uid="uid://brcsby6h7q6lv" path="res://scenes/minigame monkey/banana_bomb.tscn" id="2_8lbni"]
+[ext_resource type="PackedScene" uid="uid://dywebltem1mub" path="res://entities/player.tscn" id="3_vpwgl"]
+
+[node name="MonkeysMinigame" type="Node2D" unique_id=1478281290]
+script = ExtResource("1_xmdwn")
+
+[node name="BananaBomb" parent="." unique_id=1721452652 instance=ExtResource("2_8lbni")]
+position = Vector2(433, 196)
+
+[node name="BananaBomb3" parent="." unique_id=527604952 instance=ExtResource("2_8lbni")]
+position = Vector2(73, 168)
+
+[node name="BananaBomb4" parent="." unique_id=1372102362 instance=ExtResource("2_8lbni")]
+position = Vector2(287, 78)
+
+[node name="BananaBomb5" parent="." unique_id=627426564 instance=ExtResource("2_8lbni")]
+position = Vector2(349, 349)
+
+[node name="BananaBomb2" parent="." unique_id=98109506 instance=ExtResource("2_8lbni")]
+position = Vector2(179, 430)
+
+[node name="Player" parent="." unique_id=1766147043 instance=ExtResource("3_vpwgl")]
+position = Vector2(227, 237)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1253415393]
+visible = false
+
+[node name="GameOverPanel" type="Panel" parent="CanvasLayer" unique_id=631237574]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=1526037633]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "you failed"
+
+[node name="Button" type="Button" parent="CanvasLayer" unique_id=868215232]
+offset_right = 8.0
+offset_bottom = 8.0
+text = "ok"
+
+[connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]
