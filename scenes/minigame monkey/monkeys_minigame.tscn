@@ -1,12 +1,16 @@
 [gd_scene format=4 uid="uid://cgye1watf8e4j"]
 
-[ext_resource type="Script" uid="uid://cf1cgw0pou777" path="res://scripts/monkeys_minigame.gd" id="1_xmdwn"]
+[ext_resource type="Script" uid="uid://cf1cgw0pou777" path="res://scenes/minigame monkey/scripts/monkeys_minigame.gd" id="1_xmdwn"]
 [ext_resource type="PackedScene" uid="uid://dywebltem1mub" path="res://entities/player.tscn" id="3_vpwgl"]
-[ext_resource type="Script" uid="uid://bb857v4knan8g" path="res://scripts/monkey_spawner.gd" id="4_6i5gm"]
+[ext_resource type="Script" uid="uid://bb857v4knan8g" path="res://scenes/minigame monkey/scripts/monkey_spawner.gd" id="4_6i5gm"]
 [ext_resource type="Texture2D" uid="uid://cwwx41nynnw2q" path="res://assets/ForgottenMemories/TileSet.png" id="4_dbakw"]
 [ext_resource type="Texture2D" uid="uid://daraayckkb2s3" path="res://assets/ForgottenMemories/Props.png" id="5_tlyui"]
-[ext_resource type="Script" uid="uid://egx37iv2qwig" path="res://scripts/banana_spawner.gd" id="5_vpwgl"]
+[ext_resource type="Script" uid="uid://egx37iv2qwig" path="res://scenes/minigame monkey/scripts/banana_spawner.gd" id="5_vpwgl"]
 [ext_resource type="Texture2D" uid="uid://cucmqnctepxst" path="res://assets/ForgottenMemories/Trees.png" id="6_6i5gm"]
+[ext_resource type="Script" uid="uid://d1tgmyjai14j7" path="res://scenes/minigame monkey/scripts/tutorial_pop_up.gd" id="8_6i5gm"]
+[ext_resource type="Script" uid="uid://bu03o1fb4bb0t" path="res://scenes/minigame monkey/scripts/milk_counter.gd" id="8_btoir"]
+[ext_resource type="FontFile" uid="uid://b6eqemge56kf8" path="res://fonts/latin script/quaver/quaver.ttf" id="9_uy01w"]
+[ext_resource type="FontFile" uid="uid://bunsdpu2mcaub" path="res://fonts/latin script/monogram/monogram.ttf" id="10_btoir"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ccc6o"]
 texture = ExtResource("4_dbakw")
@@ -5511,6 +5515,16 @@ sources/0 = SubResource("TileSetAtlasSource_ccc6o")
 sources/1 = SubResource("TileSetAtlasSource_uy01w")
 sources/5 = SubResource("TileSetAtlasSource_dbakw")
 
+[sub_resource type="LabelSettings" id="LabelSettings_btoir"]
+font = ExtResource("10_btoir")
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_ha0nu"]
+font = ExtResource("9_uy01w")
+
+[sub_resource type="LabelSettings" id="LabelSettings_ij26t"]
+font = ExtResource("9_uy01w")
+
 [node name="MonkeysMinigame" type="Node2D" unique_id=1478281290]
 script = ExtResource("1_xmdwn")
 
@@ -5537,3 +5551,145 @@ texture = ExtResource("4_dbakw")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=785032646]
 position = Vector2(270, 250)
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=1066508180]
+
+[node name="MilkCounter" type="Label" parent="UI" unique_id=281032672]
+anchors_preset = -1
+anchor_left = 0.026
+anchor_top = 0.028
+anchor_right = 0.13700001
+anchor_bottom = 0.074
+offset_left = -0.03999996
+offset_right = 0.019996643
+label_settings = SubResource("LabelSettings_btoir")
+script = ExtResource("8_btoir")
+
+[node name="GameOverPanel" type="Panel" parent="UI" unique_id=164802644]
+visible = false
+self_modulate = Color(0, 0, 0, 1)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -105.0
+offset_top = -75.0
+offset_right = 105.0
+offset_bottom = 75.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="UI/GameOverPanel" unique_id=1777631803]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -42.0
+offset_top = 17.0
+offset_right = 42.0
+offset_bottom = 40.0
+grow_horizontal = 2
+text = "You Failed!"
+label_settings = SubResource("LabelSettings_ha0nu")
+
+[node name="Info" type="RichTextLabel" parent="UI/GameOverPanel" unique_id=644380890]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.45700002
+anchor_right = 1.143
+anchor_bottom = 0.58100003
+offset_left = 20.0
+offset_top = -11.550003
+offset_right = -40.03
+offset_bottom = 12.690002
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("10_btoir")
+text = "You couldn't collect enough monkey milk."
+
+[node name="OkButton" type="Button" parent="UI/GameOverPanel" unique_id=1023951698]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -27.0
+offset_top = 30.0
+offset_right = 27.0
+offset_bottom = 52.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("9_uy01w")
+theme_override_font_sizes/font_size = 13
+text = "okay :("
+
+[node name="TutorialPopUp" type="CanvasLayer" parent="." unique_id=271030036]
+process_mode = 3
+visible = false
+script = ExtResource("8_6i5gm")
+
+[node name="Panel" type="Panel" parent="TutorialPopUp" unique_id=1904523660]
+self_modulate = Color(0, 0, 0, 1)
+anchors_preset = -1
+anchor_left = 0.30600002
+anchor_top = 0.2
+anchor_right = 0.694
+anchor_bottom = 0.70000005
+offset_left = -0.2400055
+offset_right = 0.23999023
+offset_bottom = 9.9999695
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="TutorialPopUp/Panel" unique_id=481605558]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.030000001
+anchor_right = 1.0
+anchor_bottom = 0.10700001
+offset_bottom = -0.10000229
+grow_horizontal = 2
+text = "Monkey Milk Collection"
+label_settings = SubResource("LabelSettings_ij26t")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Description" type="RichTextLabel" parent="TutorialPopUp/Panel" unique_id=1660281793]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.033
+anchor_top = 0.123
+anchor_right = 0.96700007
+anchor_bottom = 0.73600006
+offset_left = 0.07000017
+offset_top = 0.099998474
+offset_right = -0.070007324
+offset_bottom = 42.079987
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("10_btoir")
+theme_override_font_sizes/normal_font_size = 19
+text = "• Avoid falling banana clusters.
+• Touch monkeys to collect milk.
+• Monkey Milk is needed for rituals.
+• More milk unlocks more possibilities."
+
+[node name="StartButton" type="Button" parent="TutorialPopUp/Panel" unique_id=2005890451]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.37100002
+anchor_top = 0.804
+anchor_right = 0.629
+anchor_bottom = 0.94500005
+offset_left = 0.08999634
+offset_top = -0.040023804
+offset_right = -0.08999634
+offset_bottom = -0.060028076
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("9_uy01w")
+text = "Start"
+
+[connection signal="pressed" from="TutorialPopUp/Panel/StartButton" to="TutorialPopUp" method="_on_start_button_pressed"]

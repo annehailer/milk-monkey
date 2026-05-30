@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://xvp7qwmefopf"]
 
 [ext_resource type="Texture2D" uid="uid://cdd5dso74uskn" path="res://assets/banana.png" id="1_5spy8"]
-[ext_resource type="Script" uid="uid://bgx7f2a35611l" path="res://scripts/banana.gd" id="1_d0moc"]
-[ext_resource type="Script" uid="uid://b8mtfbxkohknu" path="res://scripts/banana_explosion.gd" id="1_xnew4"]
+[ext_resource type="Script" uid="uid://bgx7f2a35611l" path="res://scenes/minigame monkey/scripts/banana.gd" id="1_d0moc"]
+[ext_resource type="Script" uid="uid://b8mtfbxkohknu" path="res://scenes/minigame monkey/scripts/banana_explosion.gd" id="1_xnew4"]
 
 [node name="BananaExplosionVertical" type="Node2D" unique_id=2001033903]
 scale = Vector2(1.3, 1.3)

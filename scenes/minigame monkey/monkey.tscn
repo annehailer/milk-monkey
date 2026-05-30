@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://buxooq1u2t0ub"]
 
 [ext_resource type="Shader" uid="uid://dj0tbnaqo3wlb" path="res://shaders/blink_shader.gdshader" id="1_75xqe"]
-[ext_resource type="Script" uid="uid://df71pxjheamks" path="res://scripts/monkey.gd" id="1_gfg0q"]
+[ext_resource type="Script" uid="uid://df71pxjheamks" path="res://scenes/minigame monkey/scripts/monkey.gd" id="1_gfg0q"]
 [ext_resource type="Texture2D" uid="uid://bw5jq45r885o0" path="res://monkeyman/monkeyman1.png" id="1_xvvnp"]
 [ext_resource type="Texture2D" uid="uid://c35qrw1bey3js" path="res://monkeyman/monkeyman2.png" id="2_gfg0q"]
 [ext_resource type="Texture2D" uid="uid://bcd2lfsthfhdg" path="res://monkeyman/monkeyman3.png" id="3_75xqe"]

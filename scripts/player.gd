@@ -49,8 +49,6 @@ func sprite_flip(direction: Vector2):
 	elif direction.x < 0:
 		anim.flip_h = true
 
-
-#func _on_hitbox_body_entered(area: Node2D) -> void:
-	#if area.is_in_group("Bananas"):
-		#get_tree().paused = true
-		#get_parent().show_game_over()
+func _on_hitbox_area_entered(area: Area2D) -> void:
+	if area.is_in_group("Banana"):
+		get_tree().current_scene.game_over()

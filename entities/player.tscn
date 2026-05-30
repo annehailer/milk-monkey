@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://dywebltem1mub"]
 
 [ext_resource type="Script" uid="uid://b0ugsba2bd74v" path="res://scripts/player.gd" id="1_e4p34"]
-[ext_resource type="Texture2D" uid="uid://cc7fcat6t8fhl" path="res://girl1_idle.png" id="2_rfe5m"]
-[ext_resource type="Texture2D" uid="uid://dlfkijmq7y6nn" path="res://girl1_walk.png" id="3_qly61"]
+[ext_resource type="Texture2D" uid="uid://cc7fcat6t8fhl" path="res://assets/chars/playergirl1_idle.png" id="2_rfe5m"]
+[ext_resource type="Texture2D" uid="uid://dlfkijmq7y6nn" path="res://assets/chars/playergirl1_walk.png" id="3_qly61"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rfe5m"]
 radius = 6.0
@@ -60,7 +60,7 @@ script = ExtResource("1_e4p34")
 [node name="Hitbox" type="Area2D" parent="." unique_id=1110096115 groups=["Player"]]
 visible = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=685514990]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=685514990 groups=["Player"]]
 z_index = 4096
 position = Vector2(-0.5, 3)
 shape = SubResource("CapsuleShape2D_rfe5m")
@@ -71,4 +71,5 @@ sprite_frames = SubResource("SpriteFrames_rfe5m")
 animation = &"idle"
 autoplay = "idle"
 
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
