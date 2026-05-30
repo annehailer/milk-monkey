@@ -1,13 +1,15 @@
 extends Node2D
+class_name MonkeyMinigame
 
-@onready var game_over_panel: Panel = $CanvasLayer/GameOverPanel
+@onready var player: CharacterBody2D = %Player
+@onready var monkey_spawner: Monkey_Spawner = %MonkeySpawner
+var milk: int = 0
 
-func show_game_over():
-	game_over_panel.visible = true
+
+func _ready() -> void:
+	player.monkey_minigame = self
+	monkey_spawner.monkey_minigame = self
 
 
-func _on_button_pressed() -> void:
-	get_tree().paused = false
-	
-	#get_tree().change_scene_to_file("res://monster_girl_dialogue")
-	print("failed")
+func get_milk():
+	milk += 1

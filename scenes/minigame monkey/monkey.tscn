@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://buxooq1u2t0ub"]
+
+[ext_resource type="Shader" uid="uid://dj0tbnaqo3wlb" path="res://shaders/blink_shader.gdshader" id="1_75xqe"]
+[ext_resource type="Script" uid="uid://df71pxjheamks" path="res://scripts/monkey.gd" id="1_gfg0q"]
+[ext_resource type="Texture2D" uid="uid://bw5jq45r885o0" path="res://monkeyman/monkeyman1.png" id="1_xvvnp"]
+[ext_resource type="Texture2D" uid="uid://c35qrw1bey3js" path="res://monkeyman/monkeyman2.png" id="2_gfg0q"]
+[ext_resource type="Texture2D" uid="uid://bcd2lfsthfhdg" path="res://monkeyman/monkeyman3.png" id="3_75xqe"]
+[ext_resource type="Texture2D" uid="uid://054osdhqf7bu" path="res://monkeyman/monkeyman4.png" id="4_truwk"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_75xqe"]
+shader = ExtResource("1_75xqe")
+shader_parameter/flash_color = Color(1, 1, 1, 1)
+shader_parameter/flash_pct = 0.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nj12p"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_xvvnp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_gfg0q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_75xqe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_truwk")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Monkey" type="Area2D" unique_id=1839237651]
+position = Vector2(1, -32)
+script = ExtResource("1_gfg0q")
+
+[node name="sprite" type="AnimatedSprite2D" parent="." unique_id=780403184]
+unique_name_in_owner = true
+z_index = -100
+material = SubResource("ShaderMaterial_75xqe")
+position = Vector2(0, -9.664379)
+scale = Vector2(1.3, 1.3)
+sprite_frames = SubResource("SpriteFrames_nj12p")
+autoplay = "default"
+frame_progress = 0.39581883
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=2087874841]
+position = Vector2(-0.71943665, -10.251953)
+scale = Vector2(1.3, 1.3)
+polygon = PackedVector2Array(-5, -20, 2, -21, 12, -8, 16, -12, 30, -1, 30, 2, 20, 8, 22, 10, 19, 32, -16, 32, -26, 28, -27, 22, -25, 11)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

@@ -2,52 +2,52 @@
 
 [ext_resource type="Script" uid="uid://joesnemh71y" path="res://scripts/banana_bomb.gd" id="1_ae2ia"]
 [ext_resource type="Texture2D" uid="uid://bgg5cni85cu3b" path="res://assets/shadow banana.png" id="2_bbqfo"]
+[ext_resource type="PackedScene" uid="uid://xvp7qwmefopf" path="res://scenes/minigame monkey/banana_explosion.tscn" id="2_vh0um"]
 [ext_resource type="Texture2D" uid="uid://cdd5dso74uskn" path="res://assets/banana.png" id="3_ah7am"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ae2ia"]
-
 [node name="BananaBomb" type="Node2D" unique_id=1721452652 groups=["Bananas"]]
+scale = Vector2(1.3, 1.3)
 script = ExtResource("1_ae2ia")
+explosion = ExtResource("2_vh0um")
+shake_force = 2.5
 
 [node name="Bananas" type="CharacterBody2D" parent="." unique_id=1036676176]
 unique_name_in_owner = true
 position = Vector2(-3.855, -765.638)
 
-[node name="Area2D" type="Area2D" parent="Bananas" unique_id=1253222544]
-
-[node name="Banana2" type="Sprite2D" parent="Bananas/Area2D" unique_id=1990978519]
+[node name="Banana2" type="Sprite2D" parent="Bananas" unique_id=1990978519]
+z_index = 1000
 position = Vector2(-1.6217651, -3.5587158)
 rotation = 0.23861402
 scale = Vector2(0.075, 0.075)
 texture = ExtResource("3_ah7am")
 
-[node name="Banana" type="Sprite2D" parent="Bananas/Area2D" unique_id=2108860053]
+[node name="Banana" type="Sprite2D" parent="Bananas" unique_id=2108860053]
+z_index = 1000
 rotation = -0.017158903
 scale = Vector2(0.075, 0.075)
 texture = ExtResource("3_ah7am")
 
-[node name="Banana3" type="Sprite2D" parent="Bananas/Area2D" unique_id=1248744214]
+[node name="Banana3" type="Sprite2D" parent="Bananas" unique_id=1248744214]
+z_index = 1000
 position = Vector2(2, 2)
-rotation = -0.21299756
+rotation = -0.21299754
 scale = Vector2(0.07500001, 0.07500001)
 texture = ExtResource("3_ah7am")
 
-[node name="Banana4" type="Sprite2D" parent="Bananas/Area2D" unique_id=716202968]
+[node name="Banana4" type="Sprite2D" parent="Bananas" unique_id=716202968]
+z_index = 1000
 position = Vector2(5.043152, 4.335083)
 rotation = -0.46775562
 scale = Vector2(0.075, 0.075)
 texture = ExtResource("3_ah7am")
 
-[node name="Banana5" type="Sprite2D" parent="Bananas/Area2D" unique_id=164965461]
+[node name="Banana5" type="Sprite2D" parent="Bananas" unique_id=164965461]
+z_index = 1000
 position = Vector2(7.6908073, 5.532837)
 rotation = -0.6224651
 scale = Vector2(0.075, 0.075)
 texture = ExtResource("3_ah7am")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Bananas/Area2D" unique_id=1722586692]
-position = Vector2(0.8175354, 2.2891235)
-rotation = -1.5622731
-shape = SubResource("CapsuleShape2D_ae2ia")
 
 [node name="BananaShadow" type="Node2D" parent="." unique_id=694776807]
 unique_name_in_owner = true
